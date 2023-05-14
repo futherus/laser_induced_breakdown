@@ -26,11 +26,11 @@
 %\subtitle{A short story}
 
 \author[Arthur, Doe] % (optional, for multiple authors)
-{A.~Simankovich \and D.~Dedkov }
+{Симанкович А.Л. \and Дедков Д.А. }
 
 \institute[VFU] % (optional)
 {
-	Moscow Institute of Physics and Technology
+	Московский Физико-Технический Институт
 }
 
 \date[VLC 2023] % (optional)
@@ -44,11 +44,10 @@
 	
 	\begin{frame}
 		\frametitle{Аннотация}
+				
+		%TODO: численные данные
+		В работе рассмотрен эффект оптического пробоя воздуха фокусированным лазерным излучением. Приведено теоретическое описание образования пробоя в газах. Измерены спектры и осциллограммы пробойной искры для различных веществ.
 		
-		TODO: Аннотация
-		
-		Article studies He-Ne laser and it's basic principle of operation. Laser gain is measured. Feasibility of Malus' law is demonstrated. Mode structure of laser is examined.
-
 	\end{frame}
 
 
@@ -103,7 +102,7 @@
 			\caption*{Пробой воздуха фемтосекундным лазером}
 		\end{figure}
 		%TODO: может не стоит вставлять картинку с непонятной радугой?
-		В данной работе изучается пробой полем оптического диапазона. Характерные значения поля для пробоя $E \approx 10^6 \div 10^7$ В/см (для постоянного и СВЧ полей $E \approx 3 \cdot 10^4$ В/см). 
+		В данной работе изучается пробой полем оптического диапазона. Характерные значения поля для пробоя газа $E \approx 10^6 \div 10^7$ В/см (для постоянного и СВЧ полей $E \approx 3 \cdot 10^4$ В/см). 
 		$$ P \approx 30 \text{ МВт}, \quad d = 2 \cdot 10^{-2} \text{ см} $$
 		$$ I \approx 10^5 \text{ МВт/см}^2, \quad E \approx 6 \cdot 10^6 \text{ В/см} $$
 
@@ -153,8 +152,82 @@
 		
 	\end{frame}
 	
+		\begin{frame}
+		\frametitle{Начало пробоя -- ионизация излучением}
+		\vspace{-5pt}
+		Два механизма вырывания электрона из атома излучением:
+		% TODO: А может в постоянном поле быть "просто достаточное поле", чтобы быть сильнее притяжения электрона к ядру? Это тоже туннельный эффект?
+		\begin{columns}
+			\column{0.5\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=\linewidth]{res/tunneling.png}
+				\caption*{Туннельный эффект}
+			\end{figure}
+			\vspace{-10pt}
+			\footnotesize
+			\begin{itemize}
+				\setlength\itemsep{-2pt}
+				\item $E$ -- поле световой волны.
+				\item $I$ -- энергия ионизации.
+				\item $\Delta \sim \frac{I}{eE}$ -- ширина потенциального барьера.
+				\item $v \sim \sqrt{I/m}$ -- скорость электрона.
+				\item $\tau \sim \Delta / v \sim \frac{\sqrt{Im}}{eE}$ -- время пролета барьера.
+			\end{itemize}
+			$$\omega \tau \ll 1 \text{ -- условие статичности поля.}$$
+			
+			\column{0.5\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.7\linewidth]{res/multiphoton.png}
+				\caption*{Многоквантовый фотоэффект}
+			\end{figure}
+			\footnotesize
+			$\omega \tau \gg 1$ -- условие получения достаточного числа квантов за колебание.
+		\end{columns}
+		\vspace{10pt}
+		Оценка для пробоя на оптических частотах дает $\omega \tau \gg 1$.
+		%Для вырывания электрона из атома есть два механизма: туннельный эффект (например, в статическом электрическом поле) и многоквантовый фотоэффект.
+		%Ширина потенциального барьера под действием поля $E$ составляет $\Delta \sim \frac{I}{eE}$. Скорость электрона $v \sim \sqrt{I/m}$. Тогда время пролета барьера $\tau \sim \Delta / v \sim \frac{\sqrt{Im}}{eE}$. Туннелирование может происходить если поле остается 'стационарным' во время пролета барьера: $\omega \tau \ll 1$. Для многоквантовости требуется обратное неравенство: $\omega \tau \gg 1$. Для типичных значений лазерного излучения характерно $\omega \tau \gg 1$.
+		
+	\end{frame}
+	
 	\begin{frame}
-		\frametitle{Электронная лавина}
+		\frametitle{Оценка порогового поля}
+		Попытаемся оценить пороговое значение поля с помощью теории многоквантового фотоэффекта.
+		\begin{itemize}
+			\setlength\itemsep{-2pt}
+			\item $w$ -- вероятность многоквантового фотоэффекта
+			\item $n$ -- количество поглощаемых фотонов
+			\item $F$ -- поток квантов
+		\end{itemize}
+		
+		$w \sim F^n \sim E^{2n}$ -- вероятность пропорциональна $n$-ой степени потока квантов.
+		
+		$w \sim \frac{1}{I^n}$ -- чем выше порог ионизации, тем ниже вероятность.
+		
+		$w \sim \frac{1}{\omega^n}$ -- чем ниже частота, тем больше время, за которое электрон может поглотить нужную энергию.
+		$$ w \sim \left(\frac{E^2}{\omega I}\right)^n$$
+		
+		Результат полученный Л.В.Келдышем в рамках квантовой механики:
+		\begin{equation}
+			w = B \omega n^{3/2} \left(\frac{\overline{e} \pi e^2}{mc} \frac{\hbar E}{\omega I}\right)^n
+		\end{equation}
+		
+		%Вероятность многоквантового фотоэффекта $w$ с поглощением $n$ фотонов пропорциональна $n$-ой степени потока квантов $w \sim F^n$, то есть $w \sim E^{2n}$.
+		%$w \sim \frac{1}{I^n}$ -- чем выше порог ионизации, тем ниже вероятность.
+		%$w \sim \frac{1}{\omega^n}$ -- чем ниже частота поля, тем больше характерное время изменения поля, за которое электрон может поглотить нужную энергию.
+		%$$ w \sim \left(\frac{E^2}{\omega I}\right)^n$$
+		%Точный расчет был произведен Л.В.Келдышем с использованием квантовой механики, его результат для фотоэффекта можно аппроксимировать следующей формулой:
+		%$$ w = B \omega n^{3/2} \left(\frac{\overline{e} \pi e^2}{mc} \frac{\hbar E}{\omega I}\right)^n,$$
+		%где $\omega$ -- частота поля, $B$ -- константа около 1, $$\overline{e}$ -- математическая константа, $e$ -- заряд электрона, $\hbar$ -- константа Планка.
+		
+		%TODO: Райзер, с 15, дописать численную оценку
+		%Получить формулу как-то просто не получается(
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Развитие пробоя -- электронная лавина}
 		
 		\begin{columns}
 			\column{0.5\linewidth}
@@ -190,7 +263,7 @@
 	\end{frame}
 
 	\begin{frame}
-		\frametitle{Многоквантовый фотоэффект}
+		\frametitle{Развитие пробоя -- многоквантовый фотоэффект}
 		
 		\begin{columns}
 			\column{0.5\linewidth}
@@ -203,145 +276,235 @@
 			\column{0.5\linewidth}
 			Электрон поглощает несколько фотонов одновременно. Суммарная энергия превосходит энергию ионизации: $n \cdot h\nu \sim n \cdot 2 \text{ эВ} > I \sim 10 \div 20 \text{ эВ}$. Электрон отрывается от атома.
 		\end{columns}
+	
+		Для газов при давлениях порядка атмосферного и выше -- электронная лавина.
+		Для разреженных -- многоквантовый фотоэффект.
 		% 2.
 		% Вторым механизмом является многоквантовый фотоэффект. Электрон может оторваться от атома вследствие одновременного поглощения сразу нескольких фотонов. Одноквантовый эффект невозможен, так как энергия ионизации ()$I \sim 10\div20$ эВ) на порядок выше энергии фотонов видимого диапазона ($ h\nu = \sim 2$ эВ).
 		% Для газов при атмосферных давлениях и выше характерен первый механизм.
 	\end{frame}
 	
 	\begin{frame}
-		\frametitle{Ионизация излучением}
-		\vspace{-10pt}
-		Два механизма вырывания электрона из атома излучением:
-		% TODO: А может в постоянном поле быть "просто достаточное поле", чтобы быть сильнее притяжения электрона к ядру? Это тоже туннельный эффект?
-		\begin{columns}
-			\column{0.5\linewidth}
-			\begin{figure}
-				\centering
-				\includegraphics[width=\linewidth]{res/tunneling.png}
-				\caption*{Туннельный эффект}
-			\end{figure}
-			\vspace{-10pt}
-			\footnotesize
-			\begin{itemize}
-				\setlength\itemsep{-2pt}
-				\item $E$ -- поле световой волны.
-				\item $\Delta \sim \frac{I}{eE}$ -- ширина потенциального барьера.
-				\item $v \sim \sqrt{I/m}$ -- скорость электрона.
-				\item $\tau \sim \Delta / v \sim \frac{\sqrt{Im}}{eE}$ -- время пролета барьера.
-			\end{itemize}
-			$$\omega \tau \ll 1 \text{ -- условие статичности поля.}$$
+		\frametitle{Нарастание энергии -- классический случай}
+		%TODO: Райзер, с 19-22 (вывод довольно простой)
+		
+		%KEKW: Классическая теория не описывает оптический диапазон: $h\nu >> \varepsilon_{\text{кол}}$.
+		
+		%KEKWKEKW: А нет, описывает: $ h \nu >> \varepsilon_{\text{кол}}$, но $h\nu << \varepsilon$, а это новое условие применения классики (Райзер, с 40, 43)
+		
+		Изолированный электрон, не испытывающий столкновений с атомами, не забирает энергию у поля, получив ее лишь единожды при появлении поля. Получать энергию можно только за счет столкновений.
+		
+		Подразумевается, что электрон успевает набрать полную энергию колебаний $\varepsilon_{\text{кол}} = e^2 E_0^2/4m\omega^2$ за время между столкновениями.
 
-			\column{0.5\linewidth}
-			\begin{figure}
-				\centering
-				\includegraphics[width=0.7\linewidth]{res/multiphoton.png}
-				\caption*{Многоквантовый фотоэффект}
-			\end{figure}
-			\footnotesize
-			$\omega \tau \gg 1$ -- условие получения достаточного числа квантов за колебание.
-		\end{columns}
-		\vspace{10pt}
-		Оценка для пробоя на оптических частотах дает $\omega \tau \gg 1$.
-		%Для вырывания электрона из атома есть два механизма: туннельный эффект (например, в статическом электрическом поле) и многоквантовый фотоэффект.
-		%Ширина потенциального барьера под действием поля $E$ составляет $\Delta \sim \frac{I}{eE}$. Скорость электрона $v \sim \sqrt{I/m}$. Тогда время пролета барьера $\tau \sim \Delta / v \sim \frac{\sqrt{Im}}{eE}$. Туннелирование может происходить если поле остается 'стационарным' во время пролета барьера: $\omega \tau \ll 1$. Для многоквантовости требуется обратное неравенство: $\omega \tau \gg 1$. Для типичных значений лазерного излучения характерно $\omega \tau \gg 1$.
-
-	\end{frame}
+		Для СВЧ $\hbar \omega \ll \varepsilon_{\text{кол}}$, то есть энергия колебаний составляет много квантов и процесс описывается классически.
 		
-	\begin{frame}
-		\frametitle{Простейшая оценка напряженности поля}
-		\footnotesize
-		Попытаемся оценить пороговое значение поля с помощью теории многоквантового фотоэффекта.
-		\begin{itemize}
-			\setlength\itemsep{-2pt}
-			\item $w$ -- вероятность многоквантового фотоэффекта
-			\item $n$ -- количество поглощаемых фотонов
-			\item $F$ -- поток квантов
-		\end{itemize}
+		Распределяя изменение импульса от удара на промежуток времени между столкновениями мы можем заменить резкие изменения на эквивалентную силу трения, которая рассеивает импульс.
 		
-		$w \sim F^n \sim E^{2n}$ -- вероятность пропорциональна $n$-ой степени потока квантов.
+		$$ m \dot{v} = - m v \nu_m - e E \qquad E = E_0 exp(-i \omega t)$$
+		$\nu_m = \nu_c (1 - \overline{1 - \cos \theta})$ -- частота столкновений с учетом угла рассеяния.
+		Решением уравнения является:
+		$$ v = - i e E/m (\omega + i \nu_m)$$
 		
-		$w \sim \frac{1}{I^n}$ -- чем выше порог ионизации, тем ниже вероятность.
+		Работа, совершаемая полем над электроном
+		\begin{equation}
+			d\varepsilon/dt = \frac{e^2 E^2 \nu_m}{m (\omega^2 + \nu_m^2)}
+			\label{eq:energy_growth}
+		\end{equation}
+		Среднее приращение за столкновение
+		$$ \Delta \varepsilon = 2 \varepsilon_{\text{кол}} \frac{\omega^2}{\omega^2 + \nu_m^2}$$
 		
-		$w \sim \frac{1}{\omega^n}$ -- чем ниже частота, тем больше время, за которое электрон может поглотить нужную энергию.
-		$$ w \sim \left(\frac{E^2}{\omega I}\right)^n$$
-
-		Результат полученный Л.В.Келдышем в рамках квантовой механики:
-		$$ w = B \omega n^{3/2} \left(\frac{\overline{e} \pi e^2}{mc} \frac{\hbar E}{\omega I}\right)^n$$
+		С учетом передачи энергии атому в упругом столкновении
+		$$ d\varepsilon/dt = \nu_m \left[\frac{e^2 E^2}{m (\omega^2 + \nu_m^2)} - \frac{2m}{M}\varepsilon\right]$$
 		
-		%Вероятность многоквантового фотоэффекта $w$ с поглощением $n$ фотонов пропорциональна $n$-ой степени потока квантов $w \sim F^n$, то есть $w \sim E^{2n}$.
-		%$w \sim \frac{1}{I^n}$ -- чем выше порог ионизации, тем ниже вероятность.
-		%$w \sim \frac{1}{\omega^n}$ -- чем ниже частота поля, тем больше характерное время изменения поля, за которое электрон может поглотить нужную энергию.
-		%$$ w \sim \left(\frac{E^2}{\omega I}\right)^n$$
-		%Точный расчет был произведен Л.В.Келдышем с использованием квантовой механики, его результат для фотоэффекта можно аппроксимировать следующей формулой:
-		%$$ w = B \omega n^{3/2} \left(\frac{\overline{e} \pi e^2}{mc} \frac{\hbar E}{\omega I}\right)^n,$$
-		%где $\omega$ -- частота поля, $B$ -- константа около 1, $$\overline{e}$ -- математическая константа, $e$ -- заряд электрона, $\hbar$ -- константа Планка.
-
-		%TODO: Райзер, с 15, дописать численную оценку
-		%Получить формулу как-то просто не получается(
-	\end{frame}
-
-	
-	\begin{frame}
-		\frametitle{Нарастание энергии}
-		
-		TODO: Райзер, с 19-22 (вывод довольно простой)
-		
-		KEKW: Классическая теория не описывает оптический диапазон: $h\nu >> \varepsilon_{\text{кол}}$.
-		
-		KEKWKEKW: А нет, описывает: $ h \nu >> \varepsilon_{\text{кол}}$, но $h\nu << \varepsilon$, а это новое условие применения классики (Райзер, с 40, 43)
-	\end{frame}
-	
-	\begin{frame}
-		TODO: 6 глава, оттуда вытащить более точное значение порога
-	\end{frame}
-	
-	
-	
-	
-	\begin{frame}
-		\frametitle{Elementary processes}
-		
-%		\begin{columns}[t]
-%			\footnotesize
-%			
-%			\column{0.33\linewidth}
-%			\includegraphics[height=3cm]{res/emission_types_1.jpg}
-%			$$\left(\frac{dN_0}{dt}\right)_{\text{abs}} = - B_{01} N_0 \rho(\omega)$$
-%			Einstein coefficients are the same $B_{01} = B_{10} = B$ 
-%
-%			\column{0.33\linewidth}
-%			\includegraphics[height=3cm]{res/emission_types_2.jpg}
-%			$$\left(\frac{dN_0}{dt}\right)_{\text{stim}} = B_{10} N_1 \rho(\omega)$$
-%			phase, direction and frequency of emitted and external photons are identical.
-%		
-%			\column{0.33\linewidth}
-%			\includegraphics[height=3cm]{res/emission_types_3.jpg}
-%			$$\left(\frac{dN_0}{dt}\right)_{\text{spon}} = - A_{10} N_1$$
-%			photons radiate independently in all directions. $\frac{dN_0}{dt}$ \textbf{does not} depend on $\rho(\omega)$.
-%		\end{columns}
-		
-		\vspace{10pt}
-		\footnotesize
-		Where $\rho(\omega)$ -- spectral energy density of the isotropic radiation field at the frequency of the transition.
 	\end{frame}
 
 	\begin{frame}
-	\frametitle{Laser Gain}
-	
-%	\begin{figure}
-%		\centering
-%		\includegraphics[width=1\linewidth]{res/general_laser_scheme.pdf}
-%		\caption{General laser scheme}
-%		\label{fig:general_laser_scheme}
-%	\end{figure}
-	Beer–Lambert–Bouguer law states that intensity of light $I(x)$ changes:
-	$$I(x) = I_0 \exp({\gamma x}),$$
-	
-	where $\gamma$ -- medium gain coefficient. With length $L$ gain per period is called \textbf{laser gain}:
-	
-	$$G = \exp{(\gamma L)}.$$
+		\frametitle{Нарастание энергии -- квантовый подход}
+		
+		Отметим, что для фотонов не выполняется требование $\varepsilon_{\text{кол}} \approx 2.3\cdot 10^{-2} \text{ эВ} \gg h\nu = 1.8 \text{ эВ}$ (значения для рубинового лазера $\omega = 2.7 \cdot 10^{15} \text{ 1/с}, E \approx 10^7 \text{ В/см}$).
+		
+		Как же быть?
+		
+		Столкновения все также остаются важны, так как изолированный электрон не может поглощать фотоны -- это противоречит ЗСИ.
+		
+		Поглощение и излучение фотонов электронами при столкновениях -- обратные друг другу процессы с близкими вероятностями, но поглощение происходит немного чаще.
+		
+		Более тщательные выкладки с использованием квантовой механики показывают, что классическая формула является применимой в условиях $\varepsilon \gg h\nu$.
+		Значения $\varepsilon \approx 10 \text{ эВ}$ позволяют применять данную формулу для оценок.
 	\end{frame}
 	
+	\begin{frame}
+		\frametitle{Потери энергии электронов}
+		
+		Существует два рода потерь: упругие и неупругие.
+		
+		Упругие: отдача части энергии атому при соударении. Роль тем больше, чем легче газ. Работают при всех значениях энергии электрона.
+		
+		Неупругие: возбуждение атомов. Работают при энергии $2/3I \div 3/4I$ (инертные газы).
+		Неупругие: колебательные состояния молекулярных газов.
+		
+		Для лавины (статика, СВЧ) возбуждение атомов губительно, поскольку на зарождении лавины электронов мало и шансов для попадания энергичного (хоть и не достаточно для ионизации невозбужденного) электрона с возбужденным мала.
+		
+		Для оптических частот для возбужденных атомов есть повышение вероятности многоквантового фотоэффекта. Но не на всех частотах это действительно улучшает показатели.
+		
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Потери электронов}
+		
+		Основной механизм потерь -- диффузия из области фокусного пятна.
+		
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Критерий пробоя}
+		
+		Что нам нужно? Нужно, чтобы образовалась лавина.
+		
+		Потери энергии и потери электронов определяют пороговое значение поля. При этом потери электронов обрывают цепи электронной лавины, тогда как потери энергии лишь затормаживают развитие лавины.
+		
+		$\nu_i$ -- частота ионизации атомов электронами.
+		$\nu_d$ -- частота диффузионных уходов.
+		
+		Частота ионизации без учета потерь энергии
+		$$ \nu_i = \tau_i^{-1} = \frac{1}{I} \frac{d\varepsilon}{dt}$$.
+		
+		$$ \nu_d = \tau_d^{-1} = D / \Lambda^2$$
+		$\Lambda$ -- диффузионная длина, у нас -- порядка размера пятна (для сферы $r/\pi$)
+		
+		Для электронов в зарождении пробоя характерна свободная (самостоятельная) диффузия.
+		$$ D = l_m v/3 = v^2/3\nu_m$$
+		$l_m = v / \nu_m$ -- длина пробега электронов.
+		
+		$$ dN_e/dt = N_e (\nu_i - \nu_d)$$
+		$$ N_e = N_0 exp\left[(\nu_i - \nu_d) t\right] = N_0 exp(t/\theta)$$
+		$\theta = (\nu_i - \nu_d)^{-1}$ -- постоянная времени лавины.
+		
+		Для статических и СВЧ полей можно принять $\nu_i = \nu_d$ как критерий.
+		Для оптического диапазона $\theta$ должна быть достаточно малой, чтобы за время импульса $t_1 \approx 3 \cdot 10^{-8}$ с успело образоваться достаточно число электронов.
+		
+		Из экспериментов: $\mathfrak{N} \approx 10^{13}$
+		$k = log_2 10^13 = 43 \Rightarrow \theta = 1 \text{ нс}$, что много меньше времени диффузии.
+		
+		В условиях 'нестационарного' пробоя 
+		$$ \theta^{-1} = t_1^{-1} ln( N_1 / N_0). \text{ ПОЧЕМУ ТУТ ln, а не } log_2?$$
+		
+		Рассматривая
+		1) малые давления (меньше сотен атмосфер, $\omega^2 \gg \nu_m^2$).
+		2) фокусировка не слишком острая, диффузионные потоки малы.
+		Совмещая условие пробоя $\theta^{-1} = ...$ и $\frac{d\varepsilon}{dt}$ получаем 
+		$$ E = \left[\frac{m \omega^2 I_1}{e^2 \nu_m t_1} ln N_1 / N_0\right]^{1/2}$$
+		
+		Пороги для молекулярных газов выше, чем атомарных (из-за больших неупругих потерь, 1) на колебательные степени свободы, 2) низкие уровни возбуждения, которые сложно преодолеть).
+	\end{frame}
+
+	\begin{frame}
+		$\nu_m = \nu_c (1 - \overline{\cos{\theta}})$
+		$\theta$ -- угол рассеяния.
+		
+		$(1 - \overline{\cos{\theta}})$ обычно близка к 1 $\Rightarrow$ можно просто брать $\nu_m = \nu_c$?.
+		
+		$\nu_c = N_a v \sigma_c$, $N_a$ -- число атомов в 1 см$^3$, $v$ -- скорость электрона, $\sigma_c$ -- сечение упругого рассеяния.
+		
+		Райзер, с53: У гелия частота столкновений почти не зависит от и энергии электронов $v_m \approx 2,4\cdot 10^9 P$ (в торр). Полезно знать, что у водорода зависимость $\nu_m (v)$ также слабая и $\nu_m \approx 5.9 \cdot 10^9 P$ (в торр)
+		Аргон: $\nu_m \approx 7 \cdot 10^9 P$ (в торр)
+	\end{frame}
+	%		TODO: 6 глава, оттуда вытащить более точное значение порога
+	%		TODO: Райзер, с53: Рассказывается про асимптотики. Нужно выяснить \nu_m, тогда можно рассказать про асимптотики. Не факт. что очень нужно.
+	%		TODO OR NOT TODO: Из кинетического уравнения можно оценить неупругие потери, но оно где-то далеко впереди.
+	
+	\begin{frame}[plain,c]
+		
+		\begin{center}
+			\huge \usebeamercolor[fg]{frametitle} Измерения и Результаты
+		\end{center}
+		
+	\end{frame}
+	
+	
+	\begin{frame}
+		\frametitle{Экспериментальная установка}
+		%TODO: обрезать фотку, подписать модули
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.9\linewidth]{res/photodiode_setup.jpg}
+			\caption*{Общий вид установки\\ \footnotesize (на переднем фоне система линз для фокусировки вспышки) }
+		\end{figure}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Экспериментальная установка}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.9\linewidth]{res/spark_setup.jpg}
+			\caption*{Площадка с набором линз для фокусировки пучка}
+		\end{figure}
+		
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Спектр воздушного пробоя}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\linewidth]{gen/air_lines.pdf}
+			\caption*{Спектр пробоя в воздухе}
+		\end{figure}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Спектр пробоя ксенона}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\linewidth]{gen/xe_lines_spherical.pdf}
+			\caption*{Спектр пробоя ксенона в шаровой лампе}
+		\end{figure}
+	\end{frame}
+			
+	\begin{frame}
+		\frametitle{Спектр пробоя ксенона}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\linewidth]{gen/xe_lines.pdf}
+			\caption*{Спектр пробоя ксенона в длинной лампе}
+		\end{figure}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Спектры}
+		
+		\begin{center}
+			\huge \usebeamercolor[fg]{frametitle} \textit{in progress...}
+		\end{center}
+		
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Осциллограммы}
+		
+		\begin{center}
+			\huge \usebeamercolor[fg]{frametitle} \textit{in progress...}
+		\end{center}
+		
+	\end{frame}
+
+	\begin{frame}[plain,c]
+		
+		\begin{center}
+			\huge \usebeamercolor[fg]{frametitle} Выводы и Заключение
+		\end{center}
+		
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Выводы и Заключение}
+		
+		\begin{center}
+			\huge \usebeamercolor[fg]{frametitle} \textit{in progress...}
+		\end{center}
+		
+	\end{frame}
+	
+
 	\begin{frame}[plain,c]
 		
 		\begin{center}
