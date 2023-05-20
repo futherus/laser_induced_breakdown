@@ -625,13 +625,13 @@
 	\begin{frame}
 		\frametitle{Пробой воздуха}
 		\begin{columns}
-			\column{0.5\linewidth}
+			\column{0.6\linewidth}
 			\begin{figure}
 				\centering
-				\includegraphics[width=1\linewidth]{res/break_air_1mus.jpg}
+				\includegraphics[width=1\linewidth]{res/break_air_1mus_legend.png}
 				\caption*{Интенсивность излучения от времени}
 			\end{figure}	
-			\column{0.5\linewidth}
+			\column{0.4\linewidth}
 			\begin{figure}
 				\centering
 				\includegraphics[width=\linewidth]{res/spark_air.png}
@@ -652,13 +652,13 @@
 	\begin{frame}
 		\frametitle{Пробой ксенона}
 		\begin{columns}
-			\column{0.5\linewidth}
+			\column{0.6\linewidth}
 			\begin{figure}
 				\centering
-				\includegraphics[width=1\linewidth]{res/break_spherical_1mus.jpg}
+				\includegraphics[width=1\linewidth]{res/break_spherical_1mus_legend.png}
 				\caption*{Интенсивность излучения от времени}
 			\end{figure}	
-			\column{0.5\linewidth}
+			\column{0.4\linewidth}
 			\begin{figure}
 				\centering
 				\includegraphics[width=\linewidth]{res/spark_spherical_xe.png}
@@ -743,13 +743,13 @@
 	\begin{frame}
 		\frametitle{Пробой воды}
 		\begin{columns}
-			\column{0.5\linewidth}
+			\column{0.6\linewidth}
 			\begin{figure}
 				\centering
-				\includegraphics[width=1\linewidth]{res/break_water_500ns.jpg}
+				\includegraphics[width=1\linewidth]{res/break_water_500ns_legend.png}
 				\caption*{Интенсивность излучения от времени}
 			\end{figure}	
-			\column{0.5\linewidth}
+			\column{0.4\linewidth}
 			\begin{figure}
 				\centering
 				\includegraphics[width=\linewidth]{res/water_spark.png}
@@ -783,21 +783,34 @@
 			\begin{figure}
 				\centering
 				\includegraphics[width=1\linewidth]{res/calorimeter.png}
-				\caption*{Калориметр}
+				\caption*{Фото калориметра}
 			\end{figure}	
 			\column{0.7\linewidth}
+			\vspace{5pt}
 			Пороговое значение энергии лазера, измеренное калориметром: 
 			$$W = (0.08 \pm 0.01) \text{ Дж}.$$
 			
 			Диаметр пятна в фокусе линзы: 
-			$$d \approx \frac{\lambda}{D} F = .$$
-			
-			
-			Оценка пороговой интенсивности: 
-			$$S_{\text{min}} = \frac{W}{ \tau \left(\frac{\pi d^2}{4}\right)} = (2.9 \pm 0.6)\cdot10^5 \frac{\text{Вт}}{\text{см}^2},$$
-			
-			где $\tau = 40 \text{ нс}$ -- время импульса.
+			$$d = \theta f = (54 \pm 16) \text{ мкм},$$
+			$\theta \approx 3.0 \cdot 10^{-3} \text{ рад.}$ -- угловая расходимость лазерного пучка, \\
+			$f = 18 \text{ мм}$ -- фокусное расстояние линзы. \\
 		\end{columns}
+	\end{frame}	
+
+	\begin{frame}
+		\frametitle{Оценка пороговой интенсивности}
+		\vspace{5pt}
+		Оценка пороговой интенсивности: 
+		$$S_{\text{min}} = \Theta \cdot \frac{W}{ \tau \left(\frac{\pi d^2}{4}\right)} = (1.8 \pm 0.6)\cdot10^{11} \frac{\text{Вт}}{\text{см}^2},$$
+		$\tau = 40 \text{ нс}$ -- время импульса, \\
+		$\Theta \sim 2$ -- коэффициент формы импульса.
+		
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.5\linewidth]{res/qswitched_pulse_form.png}
+			\caption*{Временная форма импульса неодимового лазера с Q-модуляцией}
+		\end{figure}	
+		
 	\end{frame}	
 
 	\begin{frame}[plain,c]
