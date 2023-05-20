@@ -1,6 +1,6 @@
 \documentclass{beamer}
 
-\usepackage[american,russian]{babel}
+\usepackage[american, russian]{babel}
 
 \usefonttheme{serif}
 
@@ -45,7 +45,7 @@
 	\begin{frame}
 		\frametitle{Abstract}
 		
-		Article studies optical breakdown effect in focused laser radiation. Theoretical description of breakdown formation in gases provided. Spectra and oscillograms of breakdown spark measured in different substances. Threshold fields are estimated.
+		Article studies optical breakdown effect in focused laser radiation. Theoretical description of breakdown formation in gases provided. Threshold fields are estimated. Spectra and oscillograms of breakdown spark measured in different substances.
 	\end{frame}
 	
 	
@@ -130,8 +130,8 @@
 			\item Static and alternating field -- $E \approx 3 \cdot 10^4$ V/cm.
 		\end{itemize}
 		Charachteristic parameters:
-		$$ P \approx 30 \text{ MW}, \quad d = 2 \cdot 10^{-2} \text{ cm} $$
-		$$ I \approx 10^5 \text{ MW/cm}^2, \quad E \approx 6 \cdot 10^6 \text{ V/cm} $$
+		$$ P \approx 30 \text{ MW}, \quad d = 0.2 \text{ mm} $$
+		$$ S \approx 10^5 \text{ MW/cm}^2, \quad E \approx 6 \cdot 10^6 \text{ V/cm} $$
 		
 		%		В данной работе изучается пробой полем оптического диапазона. Характерные значения поля для пробоя газа $E \approx 10^6 \div 10^7$ В/см (для постоянного и СВЧ полей $E \approx 3 \cdot 10^4$ В/см). 
 		
@@ -187,8 +187,7 @@
 	\end{frame}
 	
 	\begin{frame}
-		\frametitle{Breakdown initiation -- ionization by radiation}
-		\vspace{-5pt}
+		\frametitle{Breakdown initiation -- Tunneling vs Photoeffect}
 		Two mechanisms of electron ejection by radiation:
 		% TODO: А может в постоянном поле быть "просто достаточное поле", чтобы быть сильнее притяжения электрона к ядру? Это тоже туннельный эффект?
 		\begin{columns}
@@ -203,11 +202,12 @@
 			\begin{itemize}
 				\setlength\itemsep{-2pt}
 				\item $E$ -- lightwave field.
+				\item $\omega$ -- ligthwave frequency.
 				\item $I$ -- ionization energy.
-				\item $\Delta \sim \frac{I}{eE}$ -- potential barrier width.
-				\item $v \sim \sqrt{I/m}$ -- electron velocity.
-				\item $\tau \sim \Delta / v \sim \frac{\sqrt{Im}}{eE}$ -- electron time-of-flight of barrier.
 			\end{itemize}
+			$\Delta \sim \frac{I}{eE}$ -- potential barrier width. \\
+			$v \sim \sqrt{I/m}$ -- electron velocity. \\
+			$\tau \sim \Delta / v \sim \frac{\sqrt{Im}}{eE}$ -- electron time-of-flight of barrier.
 			$$\omega \tau \ll 1 \text{ -- 'static' field condition.}$$
 			
 			\column{0.5\linewidth}
@@ -264,16 +264,21 @@
 	\begin{frame}
 		\frametitle{Threshold field estimation}
 		
-		Within $t_1 \approx 40 \text{ ns}$ in spot of $r \approx 2 \cdot 10^{-2}$ cm $N = 10^{13}$ electrons should appear:
+		Within $t_1 \approx 40 \text{ ns}$ in spot of $r \approx 0.2$ mm $N = 10^{13}$ electrons should appear:
 		$$N = \frac{4}{3} \pi r^3 N_a t_1 w$$
 		\begin{center}
 			\boxed{E = \sqrt{\frac{8m\omega^2 I}{\overline{e} e^2}} \left[\frac{w}{\omega n^{3/2}}\right]^{1/2n}}
 		\end{center}
 		
-		For argon:
-		$$ E = 1.12 \cdot 10^8 \text{ V/cm -- estimation}$$
-		$$ E = 2.69 \cdot 10^6 \text{ V/cm -- experiment}$$
-		
+		\footnotesize
+		\begin{table}[]
+			\begin{tabular}{llll}
+				\hline
+							     & Xenon            & Argon            & Air              \\ \hline
+				Experiment\footnote{According to: \cite{raizer}, \cite{argon_threshold}, \cite{xenon_threshold}, \cite{air_breakdown}, \cite{air_threshold}}, V/cm & $(1.5 \div 2.3) \cdot 10^6$ & $(2.7 \div 3.1) \cdot 10^6$ & $(5 \div 13) \cdot 10^6$ \\
+				Estimation, V/cm & $110 \cdot 10^6$ & $150 \cdot 10^6$ & $130 \cdot 10^6$ \\ \hline
+			\end{tabular}
+		\end{table}
 	\end{frame}
 	
 	\begin{frame}
@@ -314,7 +319,7 @@
 	\end{frame}
 	
 	\begin{frame}
-		\frametitle{Breakdown development -- multiquantum photoeffect}
+		\frametitle{Breakdown development -- Photoeffect vs Avalanche}
 		
 		\begin{columns}
 			\column{0.5\linewidth}
@@ -444,9 +449,7 @@
 	
 	\begin{frame}
 		\frametitle{Electron energy loss}
-		
-		There are two types of energy losses: elastic and non-elastic.
-		
+				
 		\begin{columns}[t]
 			\column{0.33\linewidth}
 			\begin{figure}
@@ -510,19 +513,44 @@
 	
 	\begin{frame}
 		\frametitle{Breakdown criterion}
+		\begin{itemize}
+			\item Pressure $p \ll 100 \text{ atm} \Rightarrow$ energy losses $\ll$ diffusion.
+			\item Laser impulse time $t_1$ is very short $\Rightarrow$ diffusion is negligible.
+			
+		\end{itemize}
+		
+		
 		Electron amount:
-		$$ N_e = N_0 e^{\left[(\nu_i - \nu_d) t\right]} = N_0 e^{(t/\theta)},$$
-		$\theta = (\nu_i - \nu_d)^{-1}$ -- avalanche time constant,\\
+		$$ N_e = N_0 e^{\nu_i t} \qquad \nu_i = \frac{1}{I} \frac{d\varepsilon}{dt}$$
 		$\nu_i$ -- electron-atom ionization frequency,\\
-		$\nu_d$ -- diffusion loss frequency.
 		
 		Within impulse time $t_1 \approx 30 \div 50$ ns $N_1 \approx 10^{13}$ electrons should appear:
 		
-		$$ \theta < \frac{t_1}{\ln( N_1 / N_0)}.$$
-		Combining this condition with energy growth $d\varepsilon/dt$:
+		\begin{center}
+			\boxed{ \nu_i > \frac{\ln( N_1 / N_0)}{t_1}}
+		\end{center}
+
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Threshold field estimation}
+		
+		Combining ionization frequency $\nu_i$ with energy growth $d\varepsilon/dt$:
 		\begin{center}
 			\boxed{E = \left[\frac{m \omega^2 I}{e^2 \nu_m t_1} \ln \frac{N_1} {N_0}\right]^{1/2}}
 		\end{center}
+	
+		\footnotesize
+		\begin{table}[]
+			\begin{tabular}{llll}
+				\hline
+				                   & Xenon            & Argon            & Air              \\ \hline
+				Experiment\footnote{According to: \cite{raizer}, \cite{argon_threshold}, \cite{xenon_threshold}, \cite{air_breakdown}, \cite{air_threshold}}, V/cm & $(1.5 \div 2.3) \cdot 10^6$ & $(2.7 \div 3.1) \cdot 10^6$ & $(5 \div 13) \cdot 10^6$ \\
+				Estimation 1, V/cm & $110 \cdot 10^6$ & $150 \cdot 10^6$ & $130 \cdot 10^6$ \\
+				Estimation 2, V/cm & $1.5 \cdot 10^6$ & $2.7 \cdot 10^6$ & $2.4 \cdot 10^6$ \\ \hline
+			\end{tabular}
+		\end{table}
+		
 		
 		%		Здесь не написано про опускание потерь энергии и потерь электронов: нужно сказать устно.
 		%		Также ничего не сказано про N_1 $\approx$ 10^{13}
@@ -568,17 +596,17 @@
 		%		Пороги для молекулярных газов выше, чем атомарных (из-за больших неупругих потерь, 1) на колебательные степени свободы, 2) низкие уровни возбуждения, которые сложно преодолеть).
 	\end{frame}
 	
-	\begin{frame}
-		$\nu_m = \nu_c (1 - \overline{\cos{\theta}})$
-		$\theta$ -- угол рассеяния.
-		
-		$(1 - \overline{\cos{\theta}})$ обычно близка к 1 $\Rightarrow$ можно просто брать $\nu_m = \nu_c$?.
-		
-		$\nu_c = N_a v \sigma_c$, $N_a$ -- число атомов в 1 см$^3$, $v$ -- скорость электрона, $\sigma_c$ -- сечение упругого рассеяния.
-		
-		Райзер, с53: У гелия частота столкновений почти не зависит от и энергии электронов $v_m \approx 2,4\cdot 10^9 P$ (в торр). Полезно знать, что у водорода зависимость $\nu_m (v)$ также слабая и $\nu_m \approx 5.9 \cdot 10^9 P$ (в торр)
-		Аргон: $\nu_m \approx 7 \cdot 10^9 P$ (в торр)
-	\end{frame}
+%	\begin{frame}
+%		$\nu_m = \nu_c (1 - \overline{\cos{\theta}})$
+%		$\theta$ -- угол рассеяния.
+%		
+%		$(1 - \overline{\cos{\theta}})$ обычно близка к 1 $\Rightarrow$ можно просто брать $\nu_m = \nu_c$?.
+%		
+%		$\nu_c = N_a v \sigma_c$, $N_a$ -- число атомов в 1 см$^3$, $v$ -- скорость электрона, $\sigma_c$ -- сечение упругого рассеяния.
+%		
+%		Райзер, с53: У гелия частота столкновений почти не зависит от и энергии электронов $v_m \approx 2,4\cdot 10^9 P$ (в торр). Полезно знать, что у водорода зависимость $\nu_m (v)$ также слабая и $\nu_m \approx 5.9 \cdot 10^9 P$ (в торр)
+%		Аргон: $\nu_m \approx 7 \cdot 10^9 P$ (в торр)
+%	\end{frame}
 	%		TODO: 6 глава, оттуда вытащить более точное значение порога
 	%		TODO: Райзер, с53: Рассказывается про асимптотики. Нужно выяснить \nu_m, тогда можно рассказать про асимптотики. Не факт. что очень нужно.
 	%		TODO OR NOT TODO: Из кинетического уравнения можно оценить неупругие потери, но оно где-то далеко впереди.
@@ -660,13 +688,13 @@
 	\begin{frame}[plain,c]
 		
 		\begin{center}
-			\huge \usebeamercolor[fg]{frametitle} Выводы и Заключение
+			\huge \usebeamercolor[fg]{frametitle} Conclusion
 		\end{center}
 		
 	\end{frame}
 	
 	\begin{frame}
-		\frametitle{Выводы и Заключение}
+		\frametitle{Conclusion}
 		
 		\begin{center}
 			\huge \usebeamercolor[fg]{frametitle} \textit{in progress...}
@@ -678,9 +706,54 @@
 	\begin{frame}[plain,c]
 		
 		\begin{center}
-			\huge \usebeamercolor[fg]{frametitle} Спасибо за внимание!
+			\huge \usebeamercolor[fg]{frametitle} Thank you for your attention!
 		\end{center}
 		
 	\end{frame}
+
+	\begin{frame}
+		\frametitle{Appendix: Air breakdown threshold}
+		
+		\begin{figure}
+			\centering
+			\includegraphics[width=\linewidth]{res/air_threshold_variety.png}
+			\caption*{Variety of threshold fields}
+		\end{figure}
+	\end{frame}
+	\begin{frame}
+	\begin{thebibliography}{99} % Bibliography - this is intentionally simple in this template
+		\footnotesize
+		\bibitem{raizer}
+		Y. P. Raizer, 'Laser Spark and Propagation of Discharges'.
+		
+		\bibitem{spark_evolution}
+		S. S. Harilal, B. E. Brumfield, M. C. Phillips, 'Lifecycle of laser-produced air sparks'.
+		
+		\bibitem{air_breakdown}
+		Kai-Ting Yen, Chih-Hung Wu, Pin-Hsun Wang, Pi-Hui Tuan, Kuan-Wei Su, 'Investigating the Threshold Conditions of Air Breakdown
+		with Mode-Locked Q-Switched Laser Pulses, and the Temporal
+		Dynamics of Induced Plasma with Self-Scattering Phenomenon'
+		
+		\bibitem{argon_threshold}
+		F. Morgan, 'Laser beam induced breakdown in helium and
+		argon'.
+	
+		\bibitem{xenon_threshold}
+		Yosr E. E-D. Gamal, M. A. Mahmoud, Nagia Dawood, 'Numerical investigation of the threshold intensity dependence on gas pressure in the breakdown of xenon by different laser wavelengths'.
+		
+		\bibitem{air_threshold}
+		Zhixing Gao, Lixuan Hana, Jing Lia, 'Investigation of laser induced air breakdown thresholds at 1064, 532, 355, 266 and 248nm'.
+		
+		\bibitem{xenon_cross_section}
+		H. Nishimura, T. Matsuda, A. Danjo, 'Elastic Scattering of Electrons from Xenon'.
+		
+		\bibitem{argon_cross_section}
+		K. P. Subramanian, V. Kumar, 'Total electron scattering cross sections for argon, krypton and xenon at low electron energies'.
+		
+		\bibitem{air_cross_section}
+		A. Roldan, J.M. Perez, 'Energy deposition model for low-energy electrons (10–10 000 eV) in air'.
+	\end{thebibliography}
+	\end{frame}
+	
 	
 \end{document}
