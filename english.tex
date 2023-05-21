@@ -187,40 +187,30 @@
 	\end{frame}
 	
 	\begin{frame}
-		\frametitle{Breakdown initiation -- Tunneling vs Photoeffect}
-		Two mechanisms of electron ejection by radiation:
+		\frametitle{Breakdown initiation -- multiquantum photoeffect}
+		Mechanism of atom ionization by radiation:
 		% TODO: А может в постоянном поле быть "просто достаточное поле", чтобы быть сильнее притяжения электрона к ядру? Это тоже туннельный эффект?
 		\begin{columns}
-			\column{0.5\linewidth}
-			\begin{figure}
-				\centering
-				\includegraphics[width=\linewidth]{res/tunneling.png}
-				\caption*{Quantum tunneling}
-			\end{figure}
-			\vspace{-10pt}
-			\footnotesize
-			\begin{itemize}
-				\setlength\itemsep{-2pt}
-				\item $E$ -- lightwave field.
-				\item $\omega$ -- ligthwave frequency.
-				\item $I$ -- ionization energy.
-			\end{itemize}
-			$\Delta \sim \frac{I}{eE}$ -- potential barrier width. \\
-			$v \sim \sqrt{I/m}$ -- electron velocity. \\
-			$\tau \sim \Delta / v \sim \frac{\sqrt{Im}}{eE}$ -- electron time-of-flight of barrier.
-			$$\omega \tau \ll 1 \text{ -- 'static' field condition.}$$
-			
 			\column{0.5\linewidth}
 			\begin{figure}
 				\centering
 				\includegraphics[width=0.7\linewidth]{res/multiphoton.png}
 				\caption*{Multiquantum photoelectric effect}
 			\end{figure}
-			\footnotesize
-			$\omega \tau \gg 1$ -- condition of many quanta absorption on oscillation.
+			
+			\column{0.5\linewidth}
+			\begin{itemize}
+				\setlength\itemsep{-2pt}
+				\item $E$ -- lightwave field.
+				\item $\omega$ -- ligthwave frequency.
+				\item $I$ -- ionization energy.
+			\end{itemize}
+			
+			Multiple photons are absorbed simultaneously:
+			$$ n \cdot h\nu \sim n \cdot 2 \text{ eV} > I \sim 10\div20 \text{ eV}$$
 		\end{columns}
-		\vspace{10pt}
-		Estimation on optical frequencies gives $\omega \tau \gg 1$.
+	
+		
 		%Для вырывания электрона из атома есть два механизма: туннельный эффект (например, в статическом электрическом поле) и многоквантовый фотоэффект.
 		%Ширина потенциального барьера под действием поля $E$ составляет $\Delta \sim \frac{I}{eE}$. Скорость электрона $v \sim \sqrt{I/m}$. Тогда время пролета барьера $\tau \sim \Delta / v \sim \frac{\sqrt{Im}}{eE}$. Туннелирование может происходить если поле остается 'стационарным' во время пролета барьера: $\omega \tau \ll 1$. Для многоквантовости требуется обратное неравенство: $\omega \tau \gg 1$. Для типичных значений лазерного излучения характерно $\omega \tau \gg 1$.
 		
@@ -281,42 +271,6 @@
 		\end{table}
 	\end{frame}
 	
-	\begin{frame}
-		\frametitle{Breakdown development -- electron avalanche}
-		
-		\begin{columns}
-			\column{0.5\linewidth}
-			\begin{figure}
-				\centering
-				\includegraphics[width=0.7\linewidth]{res/inverse_bremsstrahlung.png}
-				\caption*{Inverse bremsstrahlung}
-			\end{figure}
-			\column{0.5\linewidth}
-			\begin{itemize}
-				\item Classic: in alternating field oscillation energy converts to heat in collisions.
-				\item Quantum: electron absorbs photons on collisions.
-			\end{itemize}
-		\end{columns}
-		\begin{columns}
-			\column{0.5\linewidth}
-			\begin{figure}
-				\centering
-				\includegraphics[width=0.8\linewidth]{res/electron_avalanche.png}
-				\caption*{Electron avalanche}
-			\end{figure}
-			
-			\column{0.5\linewidth}
-			Electron avalanche develops.
-			
-		\end{columns}		
-		
-		
-		% 1.
-		% Под действием постоянного внешнего электрического поля свободные электроны ускоряются, при столкновении с атомом рассеивая эту энергию в тепло. В осциллирующем поле, при колебании электронов, в среднем энергия электронов при столкновениях тоже переходит в тепло (что будет показано далее).
-		% Для оптического диапазона разумнее использовать квантовую теорию. При столкновениях с атомами электрон поглощает фотоны, приобретая энергию. Этот процесс обратен тормозному испусканию квантов при рассеянии.
-		% Таким образом, в области поля средняя скорость электронов увеличивается. Эти электроны набирают достаточную энергию, чтобы ионизировать атомы. Новые электроны добавляются к свободным, увеличивая скорость ионизации. Формируется электронная лавина.
-		
-	\end{frame}
 	
 	\begin{frame}
 		\frametitle{Breakdown development -- Photoeffect vs Avalanche}
@@ -330,8 +284,11 @@
 			\end{figure}
 			
 			\column{0.5\linewidth}
-			Electron absorbs few atoms simultaneously: 
-			$$n \cdot h\nu \sim n \cdot 2 \text{ eV} > I \sim 10 \div 20 \text{ eV}$$
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.9\linewidth]{res/electron_avalanche.png}
+				\caption*{Electron avalanche}
+			\end{figure}
 		\end{columns}
 		
 		Breakdown development:
@@ -365,7 +322,7 @@
 			\column{0.5\linewidth}
 			Isolated electron cannot take away field energy. Collision is essential condition.
 			$$ \varepsilon_{\text{osc}} = e^2 E_0^2/4m\omega^2 \sim 0.01 \text{ eV}$$
-			$$ \varepsilon \sim 10 \text{ eV} \text{ -- electron energy}$$
+			$$ \varepsilon \sim 5 \text{ eV} \text{ -- electron energy}$$
 			\begin{center}
 				\boxed{\varepsilon \gg \varepsilon_{\text{osc}} \gg h \nu}
 			\end{center}
@@ -427,11 +384,8 @@
 		
 		Quantum mechanics shows that classic formula conditions can be enhanced:
 		\begin{center}
-			\boxed{\varepsilon \gg h\nu \gg \varepsilon_{\text{osc}}}
+			\boxed{\varepsilon \geqslant h\nu \gg \varepsilon_{\text{osc}}}
 		\end{center}
-		
-		\footnotesize
-		\emph{Electron energy $\varepsilon \approx 10 \text{ eV}$ meet conditions}.
 		
 		
 		
@@ -898,7 +852,7 @@
 		Our work can be enhanced:
 		\begin{itemize}
 			\item Use high-precision photodiodes to measure laser impulse.
-			\item Obtain spark pictures CCD/ICCD camera.
+			\item Obtain spark pictures with CCD/ICCD camera.
 			\item Measure threshold fields in optical gas cuvette.
 			\item Apply more advanced theory for estimation (kinetic equations for electrons).
 		\end{itemize}
@@ -938,6 +892,44 @@
 			\caption*{Variety of threshold fields}
 		\end{figure}
 	\end{frame}
+
+	\begin{frame}
+		\frametitle{Appendix: electron avalanche}
+		
+		\begin{columns}
+			\column{0.5\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.7\linewidth]{res/inverse_bremsstrahlung.png}
+				\caption*{Inverse bremsstrahlung}
+			\end{figure}
+			\column{0.5\linewidth}
+			\begin{itemize}
+				\item Classic: in alternating field oscillation energy converts to heat in collisions.
+				\item Quantum: electron absorbs photons on collisions.
+			\end{itemize}
+		\end{columns}
+		\begin{columns}
+			\column{0.5\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.8\linewidth]{res/electron_avalanche.png}
+				\caption*{Electron avalanche}
+			\end{figure}
+			
+			\column{0.5\linewidth}
+			Electron avalanche develops.
+			
+		\end{columns}		
+		
+		
+		% 1.
+		% Под действием постоянного внешнего электрического поля свободные электроны ускоряются, при столкновении с атомом рассеивая эту энергию в тепло. В осциллирующем поле, при колебании электронов, в среднем энергия электронов при столкновениях тоже переходит в тепло (что будет показано далее).
+		% Для оптического диапазона разумнее использовать квантовую теорию. При столкновениях с атомами электрон поглощает фотоны, приобретая энергию. Этот процесс обратен тормозному испусканию квантов при рассеянии.
+		% Таким образом, в области поля средняя скорость электронов увеличивается. Эти электроны набирают достаточную энергию, чтобы ионизировать атомы. Новые электроны добавляются к свободным, увеличивая скорость ионизации. Формируется электронная лавина.
+		
+	\end{frame}
+
 	\begin{frame}
 	\begin{thebibliography}{99} % Bibliography - this is intentionally simple in this template
 		\footnotesize
