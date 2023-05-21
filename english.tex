@@ -614,76 +614,230 @@
 	\begin{frame}[plain,c]
 		
 		\begin{center}
-			\huge \usebeamercolor[fg]{frametitle} Измерения и Результаты
+			\huge \usebeamercolor[fg]{frametitle} Measurements and Results
 		\end{center}
 		
 	\end{frame}
-	
-	
+
 	\begin{frame}
-		\frametitle{Экспериментальная установка}
-		%TODO: обрезать фотку, подписать модули
+		\frametitle{Experimental setup}
 		\begin{figure}
 			\centering
-			\includegraphics[width=0.9\linewidth]{res/photodiode_setup.jpg}
-			\caption*{Общий вид установки\\ \footnotesize (на переднем фоне система линз для фокусировки вспышки) }
+			\includegraphics[width=0.9\linewidth]{res/experimental_setup.png}
+			\caption*{Photo of the experimental setup}
 		\end{figure}
 	\end{frame}
 	
 	\begin{frame}
-		\frametitle{Экспериментальная установка}
-		\begin{figure}
-			\centering
-			\includegraphics[width=0.9\linewidth]{res/spark_setup.jpg}
-			\caption*{Площадка с набором линз для фокусировки пучка}
-		\end{figure}
-		
-	\end{frame}
+		\frametitle{Experimental setup}
+		\begin{columns}
+			\column{0.5\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=1\linewidth]{res/photodiode.png}
+				\caption*{The lens system captures the spark's light}
+			\end{figure}	
+			\column{0.5\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=\linewidth]{res/setup_lenses.png}
+				\caption*{Platform with a set of lenses for beam focusing}
+			\end{figure}
+		\end{columns}
+	\end{frame}	
 	
 	\begin{frame}
-		\frametitle{Спектр воздушного пробоя}
+		\frametitle{Air breakdown}
+		\begin{columns}
+			\column{0.6\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=1\linewidth]{res/break_air_1mus_legend.png}
+				\caption*{Intensity over time}
+			\end{figure}	
+			\column{0.4\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=\linewidth]{res/spark_air.png}
+				\caption*{Photo of the spark}
+			\end{figure}
+		\end{columns}
+	\end{frame}	
+	
+	\begin{frame}
+		\frametitle{Air breakdown}
 		\begin{figure}
 			\centering
 			\includegraphics[width=\linewidth]{gen/air_lines.pdf}
-			\caption*{Спектр пробоя в воздухе}
+			\caption*{Breakdown spectrum}
 		\end{figure}
 	\end{frame}
 	
 	\begin{frame}
-		\frametitle{Спектр пробоя ксенона}
-		\begin{figure}
-			\centering
-			\includegraphics[width=\linewidth]{gen/xe_lines_spherical.pdf}
-			\caption*{Спектр пробоя ксенона в шаровой лампе}
-		\end{figure}
-	\end{frame}
+		\frametitle{Xenon breakdown}
+		\begin{columns}
+			\column{0.6\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=1\linewidth]{res/break_spherical_1mus_legend.png}
+				\caption*{Intensity over time}
+			\end{figure}	
+			\column{0.4\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=\linewidth]{res/spark_spherical_xe.png}
+				\caption*{Photo of the spark}
+			\end{figure}
+		\end{columns}
+	\end{frame}	
 	
 	\begin{frame}
-		\frametitle{Спектр пробоя ксенона}
-		\begin{figure}
-			\centering
-			\includegraphics[width=\linewidth]{gen/xe_lines.pdf}
-			\caption*{Спектр пробоя ксенона в длинной лампе}
-		\end{figure}
-	\end{frame}
+		\frametitle{Xenon breakdown}
+		\begin{columns}
+			\column{0.85\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=1.1\linewidth]{gen/xe_lines_spherical.pdf}
+				\caption*{Breakdown spectrum}
+			\end{figure}	
+			\column{0.15\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=\linewidth]{res/lamp_spherical_xe.png}
+				\caption*{Lamp ДКСШ}
+			\end{figure}
+		\end{columns}
+	\end{frame}	
 	
 	\begin{frame}
-		\frametitle{Спектры}
+		\frametitle{Xenon breakdown}
+		\begin{columns}
+			\column{0.85\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=1.1\linewidth]{gen/xe_lines.pdf}
+				\caption*{Breakdown spectrum}
+			\end{figure}	
+			\column{0.15\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=\linewidth]{res/lamp_tube_xe.png}
+				\caption*{Lamp ИФП-800}
+			\end{figure}
+		\end{columns}
+	\end{frame}	
+	
+	\begin{frame}
+		\frametitle{Xenon breakdown}
+		\begin{columns}
+			\column{0.85\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=1.1\linewidth]{gen/tirat_xe_lines.pdf}
+				\caption*{Breakdown spectrum}
+			\end{figure}	
+			\column{0.15\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=\linewidth]{res/tirat_xe.png}
+				\caption*{Thyratron ТГ3-0.1/1.3}
+			\end{figure}
+		\end{columns}
+	\end{frame}	
+	
+	\begin{frame}
+		\frametitle{Argon breakdown}
+		\begin{columns}
+			\column{0.85\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=1.1\linewidth]{gen/ar_lines.pdf}
+				\caption*{Breakdown spectrum}
+			\end{figure}	
+			\column{0.15\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=\linewidth]{res/tirat_ar.png}
+				\caption*{Thyratron ТГИ1-3/1}
+			\end{figure}
+		\end{columns}
+	\end{frame}	
+	
+	\begin{frame}
+		\frametitle{Water breakdown}
+		\begin{columns}
+			\column{0.6\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=1\linewidth]{res/break_water_500ns_legend.png}
+				\caption*{Intensity over time}
+			\end{figure}	
+			\column{0.4\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=\linewidth]{res/water_spark.png}
+				\caption*{Photo of the spark}
+			\end{figure}
+		\end{columns}
+	\end{frame}	
+
+	\begin{frame}
+		\frametitle{Water breakdown}
+		\begin{columns}
+			\column{0.85\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=1.1\linewidth]{gen/water_lines.pdf}
+				\caption*{Breakdown spectrum}
+			\end{figure}	
+			\column{0.15\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=\linewidth]{res/water_cuvette.png}
+				\caption*{Water cuvette}
+			\end{figure}
+		\end{columns}
+	\end{frame}	
+	
+	\begin{frame}
+		\frametitle{Peak intensity estimation}
+		\begin{columns}
+			\column{0.3\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=1\linewidth]{res/calorimeter.png}
+				\caption*{Calorimeter measures impulse energy}
+			\end{figure}	
+			\column{0.7\linewidth}
+			\vspace{5pt}
+			Energy measured by calorimeter: 
+			$$W = (0.08 \pm 0.01) \text{ J}.$$
+			
+			The diameter of spot in the focal plane:
+			$$d = \theta f = (54 \pm 16) \mu m,$$
+			$\theta \approx 3.0 \cdot 10^{-3} \text{ rad}$ -- beam divergence, \\
+			$f = 18 \text{ mm}$ -- focal length. \\
+		\end{columns}
+	\end{frame}	
+	
+	\begin{frame}
+		\frametitle{Peak intensity estimation}
+		\vspace{5pt}
+		Impulse peak intensity: 
 		
 		\begin{center}
-			\huge \usebeamercolor[fg]{frametitle} \textit{in progress...}
+			\boxed{S_{\text{min}} = \Theta \cdot \frac{W}{ \tau \left(\frac{\pi d^2}{4}\right)} = (1.8 \pm 0.6)\cdot10^{11} \frac{\text{W}}{\text{cm}^2},}
 		\end{center}
+		$\tau = 40 \text{ ns}$ -- pulse time, \\
+		$\Theta \sim 2$ -- pulseform factor.
 		
-	\end{frame}
-	
-	\begin{frame}
-		\frametitle{Осциллограммы}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.5\linewidth]{res/qswitched_pulse_form.png}
+			\caption*{Temporal profile of the passively Q switched Nd pump laser}
+		\end{figure}	
 		
-		\begin{center}
-			\huge \usebeamercolor[fg]{frametitle} \textit{in progress...}
-		\end{center}
-		
-	\end{frame}
+	\end{frame}	
 	
 	\begin{frame}[plain,c]
 		
