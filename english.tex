@@ -849,13 +849,77 @@
 	
 	\begin{frame}
 		\frametitle{Conclusion}
-		
-		\begin{center}
-			\huge \usebeamercolor[fg]{frametitle} \textit{in progress...}
-		\end{center}
-		
+		\begin{itemize}
+			\item Laser breakdown was achieved. Threshold field for air was measured.
+				  $$ E_{air} = 8.2 \cdot 10^6 \text{ V/cm}$$
+			\item Theoretical threshold fields agree with experiment for atomic gases.
+			\footnotesize
+			\begin{table}[]
+				\begin{tabular}{llll}
+					\hline
+					& Xenon            & Argon            & Air              \\ \hline
+					Experiment\footnote{According to: \cite{raizer}, \cite{argon_threshold}, \cite{xenon_threshold}, \cite{air_breakdown}, \cite{air_threshold}}, V/cm & $(1.5 \div 2.3) \cdot 10^6$ & $(2.7 \div 3.1) \cdot 10^6$ & $(5 \div 13) \cdot 10^6$ \\
+					Estimation, V/cm & $1.5 \cdot 10^6$ & $2.7 \cdot 10^6$ & $2.4 \cdot 10^6$ \\ \hline
+				\end{tabular}
+			\end{table}
+			
+			\item 
+			\normalsize Spectra and time characteristics of sparks were collected.
+			\begin{columns}
+				\column{0.33\linewidth}
+				\begin{figure}
+					\centering
+					\includegraphics[width=\linewidth]{gen/air_lines.pdf}
+					\caption*{Air spectrum}
+				\end{figure}
+				
+				\column{0.33\linewidth}
+				\begin{figure}
+					\centering
+					\includegraphics[width=\linewidth]{gen/xe_lines.pdf}
+					\caption*{Xenon spectrum}
+				\end{figure}
+
+				\column{0.33\linewidth}
+				\begin{figure}
+					\centering
+					\includegraphics[width=\linewidth]{gen/ar_lines.pdf}
+					\caption*{Argon spectrum}
+				\end{figure}
+				
+			\end{columns}
+			
+		\end{itemize}
+				
 	\end{frame}
 	
+	\begin{frame}
+		\frametitle{Possible improvements}
+		Our work can be enhanced:
+		\begin{itemize}
+			\item Use high-precision photodiodes to measure laser impulse.
+			\item Obtain spark pictures CCD/ICCD camera.
+			\item Measure threshold fields in optical gas cuvette.
+			\item Apply more advanced theory for estimation (kinetic equations for electrons).
+		\end{itemize}
+	
+		\begin{columns}
+			\column{0.5\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.9\linewidth]{res/iccd_camera.png}
+				\caption*{ICCD camera}
+			\end{figure}
+			\column{0.5\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.9\linewidth]{res/gas_cuvette.jpeg}
+				\caption*{Optical gas cuvette}
+			\end{figure}
+		\end{columns}
+	
+		
+	\end{frame}
 	
 	\begin{frame}[plain,c]
 		
