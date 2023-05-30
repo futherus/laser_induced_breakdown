@@ -273,21 +273,21 @@
 	
 	
 	\begin{frame}
-		\frametitle{Breakdown development -- Photoeffect vs Avalanche}
+		\frametitle{Breakdown development -- Avalanche vs Photoeffect}
 		
 		\begin{columns}
 			\column{0.5\linewidth}
 			\begin{figure}
 				\centering
-				\includegraphics[width=0.9\linewidth]{res/multiphoton.png}
-				\caption*{Multiquantum photoeffect}
+				\includegraphics[width=0.9\linewidth]{res/electron_avalanche.png}
+				\caption*{Electron avalanche}
 			\end{figure}
 			
 			\column{0.5\linewidth}
 			\begin{figure}
 				\centering
-				\includegraphics[width=0.9\linewidth]{res/electron_avalanche.png}
-				\caption*{Electron avalanche}
+				\includegraphics[width=0.9\linewidth]{res/multiphoton.png}
+				\caption*{Multiquantum photoeffect}
 			\end{figure}
 		\end{columns}
 		
@@ -478,7 +478,7 @@
 		$$ N_e = N_0 e^{\nu_i t} \qquad \nu_i = \frac{1}{I} \frac{d\varepsilon}{dt}$$
 		$\nu_i$ -- electron-atom ionization frequency,\\
 		
-		Within impulse time $t_1 \approx 30 \div 50$ ns $N_1 \approx 10^{13}$ electrons should appear:
+		Within impulse time $t_1 \approx 40$ ns $N_1 \approx 10^{13}$ electrons should appear:
 		
 		\begin{center}
 			\boxed{ \nu_i > \frac{\ln( N_1 / N_0)}{t_1}}
@@ -894,7 +894,7 @@
 	\end{frame}
 
 	\begin{frame}
-		\frametitle{Appendix: electron avalanche}
+		\frametitle{Appendix: Electron avalanche}
 		
 		\begin{columns}
 			\column{0.5\linewidth}
@@ -929,6 +929,47 @@
 		% Таким образом, в области поля средняя скорость электронов увеличивается. Эти электроны набирают достаточную энергию, чтобы ионизировать атомы. Новые электроны добавляются к свободным, увеличивая скорость ионизации. Формируется электронная лавина.
 		
 	\end{frame}
+
+	\begin{frame}
+		\frametitle{Appendix: Tunneling vs Photoeffect}
+		Two mechanisms of electron ejection by radiation:
+		% TODO: А может в постоянном поле быть "просто достаточное поле", чтобы быть сильнее притяжения электрона к ядру? Это тоже туннельный эффект?
+		\begin{columns}
+			\column{0.5\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=\linewidth]{res/tunneling.png}
+				\caption*{Quantum tunneling}
+			\end{figure}
+			\vspace{-10pt}
+			\footnotesize
+			\begin{itemize}
+				\setlength\itemsep{-2pt}
+				\item $E$ -- lightwave field.
+				\item $\omega$ -- ligthwave frequency.
+				\item $I$ -- ionization energy.
+			\end{itemize}
+			$\Delta \sim \frac{I}{eE}$ -- potential barrier width. \\
+			$v \sim \sqrt{I/m}$ -- electron velocity. \\
+			$\tau \sim \Delta / v \sim \frac{\sqrt{Im}}{eE}$ -- electron time-of-flight of barrier.
+			$$\omega \tau \ll 1 \text{ -- 'static' field condition.}$$
+			
+			\column{0.5\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.7\linewidth]{res/multiphoton.png}
+				\caption*{Multiquantum photoelectric effect}
+			\end{figure}
+			\footnotesize
+			$\omega \tau \gg 1$ -- condition of many quanta absorption on oscillation.
+		\end{columns}
+		\vspace{10pt}
+		Estimation on optical frequencies gives $\omega \tau \gg 1$.
+		%Для вырывания электрона из атома есть два механизма: туннельный эффект (например, в статическом электрическом поле) и многоквантовый фотоэффект.
+		%Ширина потенциального барьера под действием поля $E$ составляет $\Delta \sim \frac{I}{eE}$. Скорость электрона $v \sim \sqrt{I/m}$. Тогда время пролета барьера $\tau \sim \Delta / v \sim \frac{\sqrt{Im}}{eE}$. Туннелирование может происходить если поле остается 'стационарным' во время пролета барьера: $\omega \tau \ll 1$. Для многоквантовости требуется обратное неравенство: $\omega \tau \gg 1$. Для типичных значений лазерного излучения характерно $\omega \tau \gg 1$.
+		
+	\end{frame}
+	
 
 	\begin{frame}
 	\begin{thebibliography}{99} % Bibliography - this is intentionally simple in this template
