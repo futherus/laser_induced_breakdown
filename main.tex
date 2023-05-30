@@ -820,16 +820,133 @@
 		\end{center}
 		
 	\end{frame}
+
+	\begin{frame}
+		\frametitle{Выводы}
+		\begin{itemize}
+			\item Был изучен лазерный пробой. Пороговые значения поля были измерены:
+			$$ E_{air} = 8.2 \cdot 10^6 \text{ V/cm}$$
+			\item Теоретические оценки согласуются с экспериментальными данными.
+			\footnotesize
+			\begin{table}[]
+				\begin{tabular}{llll}
+					\hline
+					& Ксенон            & Аргон            & Воздух              \\ \hline
+					Эксперимент\footnote{According to: \cite{raizer}, \cite{argon_threshold}, \cite{xenon_threshold}, \cite{air_breakdown}, \cite{air_threshold}}, V/cm & $(1.5 \div 2.3) \cdot 10^6$ & $(2.7 \div 3.1) \cdot 10^6$ & $(5 \div 13) \cdot 10^6$ \\
+					Оценка, V/cm & $1.5 \cdot 10^6$ & $2.7 \cdot 10^6$ & $2.4 \cdot 10^6$ \\ \hline
+				\end{tabular}
+			\end{table}
+			
+			\item 
+			\normalsize Были собраны спектры и временные характеристики пробоя.
+			\begin{columns}
+				\column{0.33\linewidth}
+				\begin{figure}
+					\centering
+					\includegraphics[width=\linewidth]{gen/air_lines.pdf}
+					\caption*{Спектр воздуха}
+				\end{figure}
+				
+				\column{0.33\linewidth}
+				\begin{figure}
+					\centering
+					\includegraphics[width=\linewidth]{gen/xe_lines.pdf}
+					\caption*{Спектр ксенона}
+				\end{figure}
+				
+				\column{0.33\linewidth}
+				\begin{figure}
+					\centering
+					\includegraphics[width=\linewidth]{gen/ar_lines.pdf}
+					\caption*{Спектр аргона}
+				\end{figure}
+				
+			\end{columns}
+			
+		\end{itemize}
+		
+	\end{frame}
 	
 	\begin{frame}
-		\frametitle{Выводы и Заключение}
+		\frametitle{Улучшения}
+		В дальнейшем можно:
+		\begin{itemize}
+			\item Использовать фотодиод с более высоким временным разрешением.
+			\item Фотографировать пробой на CCD/ICCD камеру.
+			\item Проводить измерения в оптической кювете.
+			\item Применить более точную теорию для оценок.
+		\end{itemize}
+		
+		\begin{columns}
+			\column{0.5\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.9\linewidth]{res/iccd_camera.png}
+				\caption*{ICCD camera}
+			\end{figure}
+			\column{0.5\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.9\linewidth]{res/gas_cuvette.jpeg}
+				\caption*{Optical gas cuvette}
+			\end{figure}
+		\end{columns}
+		
+		
+	\end{frame}
+	
+	\begin{frame}[plain,c]
 		
 		\begin{center}
-			\huge \usebeamercolor[fg]{frametitle} \textit{in progress...}
+			\huge \usebeamercolor[fg]{frametitle} Спасибо за внимание!
 		\end{center}
 		
 	\end{frame}
 	
+	\begin{frame}
+		\frametitle{Приложение: Пороговые значения пробоя в воздухе.}
+		
+		\begin{figure}
+			\centering
+			\includegraphics[width=\linewidth]{res/air_threshold_variety.png}
+			\caption*{Variety of threshold fields}
+		\end{figure}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{thebibliography}{99} % Bibliography - this is intentionally simple in this template
+			\footnotesize
+			\bibitem{raizer}
+			Y. P. Raizer, 'Laser Spark and Propagation of Discharges'.
+			
+			\bibitem{spark_evolution}
+			S. S. Harilal, B. E. Brumfield, M. C. Phillips, 'Lifecycle of laser-produced air sparks'.
+			
+			\bibitem{air_breakdown}
+			Kai-Ting Yen, Chih-Hung Wu, Pin-Hsun Wang, Pi-Hui Tuan, Kuan-Wei Su, 'Investigating the Threshold Conditions of Air Breakdown
+			with Mode-Locked Q-Switched Laser Pulses, and the Temporal
+			Dynamics of Induced Plasma with Self-Scattering Phenomenon'
+			
+			\bibitem{argon_threshold}
+			F. Morgan, 'Laser beam induced breakdown in helium and
+			argon'.
+			
+			\bibitem{xenon_threshold}
+			Yosr E. E-D. Gamal, M. A. Mahmoud, Nagia Dawood, 'Numerical investigation of the threshold intensity dependence on gas pressure in the breakdown of xenon by different laser wavelengths'.
+			
+			\bibitem{air_threshold}
+			Zhixing Gao, Lixuan Hana, Jing Lia, 'Investigation of laser induced air breakdown thresholds at 1064, 532, 355, 266 and 248nm'.
+			
+			\bibitem{xenon_cross_section}
+			H. Nishimura, T. Matsuda, A. Danjo, 'Elastic Scattering of Electrons from Xenon'.
+			
+			\bibitem{argon_cross_section}
+			K. P. Subramanian, V. Kumar, 'Total electron scattering cross sections for argon, krypton and xenon at low electron energies'.
+			
+			\bibitem{air_cross_section}
+			A. Roldan, J.M. Perez, 'Energy deposition model for low-energy electrons (10–10 000 eV) in air'.
+		\end{thebibliography}
+	\end{frame}
 
 	\begin{frame}[plain,c]
 		
