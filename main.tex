@@ -49,7 +49,7 @@
 		В работе рассмотрен эффект оптического пробоя воздуха фокусированным лазерным излучением. Приведено теоретическое описание образования пробоя в газах. Измерены спектры и осциллограммы пробойной искры для различных веществ.
 		
 		% TODO:
-		Ключевые слова:
+%		Ключевые слова:
 	\end{frame}
 
 
@@ -268,18 +268,24 @@
 	\begin{frame}
 		\frametitle{Оценка порогового поля}
 		
-		За время $t_1 \approx 40 \text{ нс}$ в пятне радиусом $r$ должно появиться $N = 10^{13}$ электронов:
+		За время $t_1 \approx 40 \text{ нс}$ в фокусном пятне радиусом $r \approx 0.2$ мм должно появиться $N = 10^{13}$ электронов:
 		$$N = \frac{4}{3} \pi r^3 N_a t_1 w$$
 		\begin{center}
 			\boxed{E = \sqrt{\frac{8m\omega^2 I}{\overline{e} e^2}} \left[\frac{w}{\omega n^{3/2}}\right]^{1/2n}}
 		\end{center}
-	
-		Для аргона:
-		$$ E = 1.12 \cdot 10^8 \text{ В/см -- оценка}$$
-		$$ E = 2.69 \cdot 10^6 \text{ В/см -- эксперимент}$$
 		
+		\footnotesize
+		\begin{table}[]
+			\begin{tabular}{llll}
+				\hline
+				& Ксенон            & Аргон            & Воздух              \\ \hline
+				Справочные\footnote{В соответствии с: \cite{raizer}, \cite{argon_threshold}, \cite{xenon_threshold}, \cite{air_breakdown}, \cite{air_threshold}}, В/см & $(1.5 \div 2.3) \cdot 10^6$ & $(2.7 \div 3.1) \cdot 10^6$ & $(5 \div 13) \cdot 10^6$ \\
+				Оценка, В/см & $110 \cdot 10^6$ & $150 \cdot 10^6$ & $130 \cdot 10^6$ \\ \hline
+			\end{tabular}
+		\end{table}
 	\end{frame}
 	
+		
 	\begin{frame}
 		\frametitle{Развитие пробоя -- электронная лавина}
 		
@@ -428,11 +434,11 @@
 		
 		Квантовая механика показывает, что классическая формула является применимой в условиях: 
 		\begin{center}
-			\boxed{\varepsilon \gg h\nu \gg \varepsilon_{\text{кол}}}
+			\boxed{\varepsilon \geqslant h\nu \gg \varepsilon_{\text{кол}}}
 		\end{center}
 
 		\footnotesize
-		\emph{Энергии электрона $\varepsilon \approx 10 \text{ эВ}$ позволяют применять данную формулу}.
+		\emph{Энергии электрона $\varepsilon \approx 5 \text{ эВ}$ позволяют применять данную формулу}.
 		
 		
 		
@@ -510,22 +516,47 @@
 				
 	\end{frame}
 
+		
 	\begin{frame}
 		\frametitle{Критерий пробоя}
-		Число электронов:
-		$$ N_e = N_0 e^{\left[(\nu_i - \nu_d) t\right]} = N_0 e^{(t/\theta)},$$
-		$\theta = (\nu_i - \nu_d)^{-1}$ -- постоянная времени лавины,\\
-		$\nu_i$ -- частота ионизации атомов электронами,\\
-		$\nu_d$ -- частота диффузионных уходов.
-
-		За время импульса $t_1 \approx 30 \div 50$ нс должно появиться $N_1 \approx 10^{13}$ электронов:
+		\begin{itemize}
+			\item Давление $p \ll 100 \text{ атм} \Rightarrow$ потери энергии $\ll$ диффузия.
+			\item Время лазерного импульса $t_1$ очень короткое $\Rightarrow$ диффузией можно пренебречь.
+			
+		\end{itemize}
 		
-		$$ \theta < \frac{t_1}{\ln( N_1 / N_0)}.$$
-		Совмещая это условие и скорость нарастания энергии $d\varepsilon/dt$:
+		
+		Число электронов:
+		$$ N_e = N_0 e^{\nu_i t} \qquad \nu_i = \frac{1}{I} \frac{d\varepsilon}{dt}$$
+		$\nu_i$ -- частота электронной ионизации,\\
+		
+		За время $t_1 \approx 40$ нс должно появиться $N_1 \approx 10^{13}$ электронов:
+		
+		\begin{center}
+			\boxed{ \nu_i > \frac{\ln( N_1 / N_0)}{t_1}.}
+		\end{center}
+		
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Оценка порогового поля}
+		
+		Совмещая частоту электронной ионизации $\nu_i$ с нарастанием энергии $d\varepsilon/dt$:
 		\begin{center}
 			\boxed{E = \left[\frac{m \omega^2 I}{e^2 \nu_m t_1} \ln \frac{N_1} {N_0}\right]^{1/2}}
 		\end{center}
 		
+		\footnotesize
+		\begin{table}[]
+			\begin{tabular}{llll}
+				\hline
+				& Ксенон            & Аргон            & Воздух              \\ \hline
+				Справочные\footnote{В соответствии с: \cite{raizer}, \cite{argon_threshold}, \cite{xenon_threshold}, \cite{air_breakdown}, \cite{air_threshold}}, В/см & $(1.5 \div 2.3) \cdot 10^6$ & $(2.7 \div 3.1) \cdot 10^6$ & $(5 \div 13) \cdot 10^6$ \\
+				Оценка 1, В/см & $110 \cdot 10^6$ & $150 \cdot 10^6$ & $130 \cdot 10^6$ \\
+				Оценка 2, В/см & $1.5 \cdot 10^6$ & $2.7 \cdot 10^6$ & $2.4 \cdot 10^6$ \\ \hline
+			\end{tabular}
+		\end{table}
+				
 %		Здесь не написано про опускание потерь энергии и потерь электронов: нужно сказать устно.
 %		Также ничего не сказано про N_1 $\approx$ 10^{13}
 
@@ -570,17 +601,17 @@
 %		Пороги для молекулярных газов выше, чем атомарных (из-за больших неупругих потерь, 1) на колебательные степени свободы, 2) низкие уровни возбуждения, которые сложно преодолеть).
 	\end{frame}
 
-	\begin{frame}
-		$\nu_m = \nu_c (1 - \overline{\cos{\theta}})$
-		$\theta$ -- угол рассеяния.
-		
-		$(1 - \overline{\cos{\theta}})$ обычно близка к 1 $\Rightarrow$ можно просто брать $\nu_m = \nu_c$?.
-		
-		$\nu_c = N_a v \sigma_c$, $N_a$ -- число атомов в 1 см$^3$, $v$ -- скорость электрона, $\sigma_c$ -- сечение упругого рассеяния.
-		
-		Райзер, с53: У гелия частота столкновений почти не зависит от и энергии электронов $v_m \approx 2,4\cdot 10^9 P$ (в торр). Полезно знать, что у водорода зависимость $\nu_m (v)$ также слабая и $\nu_m \approx 5.9 \cdot 10^9 P$ (в торр)
-		Аргон: $\nu_m \approx 7 \cdot 10^9 P$ (в торр)
-	\end{frame}
+%	\begin{frame}
+%		$\nu_m = \nu_c (1 - \overline{\cos{\theta}})$
+%		$\theta$ -- угол рассеяния.
+%		
+%		$(1 - \overline{\cos{\theta}})$ обычно близка к 1 $\Rightarrow$ можно просто брать $\nu_m = \nu_c$?.
+%		
+%		$\nu_c = N_a v \sigma_c$, $N_a$ -- число атомов в 1 см$^3$, $v$ -- скорость электрона, $\sigma_c$ -- сечение упругого рассеяния.
+%		
+%		Райзер, с53: У гелия частота столкновений почти не зависит от и энергии электронов $v_m \approx 2,4\cdot 10^9 P$ (в торр). Полезно знать, что у водорода зависимость $\nu_m (v)$ также слабая и $\nu_m \approx 5.9 \cdot 10^9 P$ (в торр)
+%		Аргон: $\nu_m \approx 7 \cdot 10^9 P$ (в торр)
+%	\end{frame}
 	%		TODO: 6 глава, оттуда вытащить более точное значение порога
 	%		TODO: Райзер, с53: Рассказывается про асимптотики. Нужно выяснить \nu_m, тогда можно рассказать про асимптотики. Не факт. что очень нужно.
 	%		TODO OR NOT TODO: Из кинетического уравнения можно оценить неупругие потери, но оно где-то далеко впереди.
@@ -825,15 +856,15 @@
 		\frametitle{Выводы}
 		\begin{itemize}
 			\item Был изучен лазерный пробой. Пороговые значения поля были измерены:
-			$$ E_{air} = 8.2 \cdot 10^6 \text{ V/cm}$$
+			$$ E_{air} = 8.2 \cdot 10^6 \text{ В/см}$$
 			\item Теоретические оценки согласуются с экспериментальными данными.
 			\footnotesize
 			\begin{table}[]
 				\begin{tabular}{llll}
 					\hline
 					& Ксенон            & Аргон            & Воздух              \\ \hline
-					Эксперимент\footnote{According to: \cite{raizer}, \cite{argon_threshold}, \cite{xenon_threshold}, \cite{air_breakdown}, \cite{air_threshold}}, V/cm & $(1.5 \div 2.3) \cdot 10^6$ & $(2.7 \div 3.1) \cdot 10^6$ & $(5 \div 13) \cdot 10^6$ \\
-					Оценка, V/cm & $1.5 \cdot 10^6$ & $2.7 \cdot 10^6$ & $2.4 \cdot 10^6$ \\ \hline
+					Эксперимент\footnote{В соответствии с: \cite{raizer}, \cite{argon_threshold}, \cite{xenon_threshold}, \cite{air_breakdown}, \cite{air_threshold}}, В/см & $(1.5 \div 2.3) \cdot 10^6$ & $(2.7 \div 3.1) \cdot 10^6$ & $(5 \div 13) \cdot 10^6$ \\
+					Оценка, В/см & $1.5 \cdot 10^6$ & $2.7 \cdot 10^6$ & $2.4 \cdot 10^6$ \\ \hline
 				\end{tabular}
 			\end{table}
 			
@@ -868,7 +899,7 @@
 	\end{frame}
 	
 	\begin{frame}
-		\frametitle{Улучшения}
+		\frametitle{Возможные улучшения}
 		В дальнейшем можно:
 		\begin{itemize}
 			\item Использовать фотодиод с более высоким временным разрешением.
@@ -882,13 +913,13 @@
 			\begin{figure}
 				\centering
 				\includegraphics[width=0.9\linewidth]{res/iccd_camera.png}
-				\caption*{ICCD camera}
+				\caption*{ICCD камера}
 			\end{figure}
 			\column{0.5\linewidth}
 			\begin{figure}
 				\centering
 				\includegraphics[width=0.9\linewidth]{res/gas_cuvette.jpeg}
-				\caption*{Optical gas cuvette}
+				\caption*{Газовая оптическая кювета}
 			\end{figure}
 		\end{columns}
 		
@@ -904,15 +935,15 @@
 	\end{frame}
 	
 	\begin{frame}
-		\frametitle{Приложение: Пороговые значения пробоя в воздухе.}
+		\frametitle{Приложение: Пороговые поля для воздуха}
 		
 		\begin{figure}
 			\centering
 			\includegraphics[width=\linewidth]{res/air_threshold_variety.png}
-			\caption*{Variety of threshold fields}
+			\caption*{Разнообразие пороговых полей}
 		\end{figure}
 	\end{frame}
-	
+
 	\begin{frame}
 		\begin{thebibliography}{99} % Bibliography - this is intentionally simple in this template
 			\footnotesize
@@ -947,13 +978,7 @@
 			A. Roldan, J.M. Perez, 'Energy deposition model for low-energy electrons (10–10 000 eV) in air'.
 		\end{thebibliography}
 	\end{frame}
-
-	\begin{frame}[plain,c]
-		
-		\begin{center}
-			\huge \usebeamercolor[fg]{frametitle} Спасибо за внимание!
-		\end{center}
-		
-	\end{frame}
+	
+	
 	
 \end{document}
